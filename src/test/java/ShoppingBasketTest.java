@@ -101,5 +101,17 @@ public class ShoppingBasketTest {
         assertEquals(16.10, shoppingBasket1.basketTotalValue(), 0.01);
     }
 
+    @Test
+    public void canGetTenPercentDiscount(){
+        shoppingBasket1.addProduct(product2);
+        assertEquals(10.00, shoppingBasket1.basketTotalValue(), 0.01);
+        shoppingBasket1.addProduct(product2);
+        assertEquals(20.00, shoppingBasket1.basketTotalValue(), 0.01);
+        shoppingBasket1.addProduct(product2);
+        assertEquals(27.00, shoppingBasket1.basketTotalValue(), 0.01);
+
+
+}
+
 
 }
