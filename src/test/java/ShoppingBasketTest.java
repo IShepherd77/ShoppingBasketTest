@@ -9,14 +9,14 @@ public class ShoppingBasketTest {
     Product product1;
     Product product2;
     Product product3;
-    Customer customer;
+    Customer customer1;
 
 
     @Before
     public void before(){
-        customer = new Customer(1, "Dave", true);
-        shoppingBasket1 = new ShoppingBasket(customer);
-        product1 = new Product("Twix", 0.50, true, 1);
+        customer1 = new Customer(1, "Dave", false);
+        shoppingBasket1 = new ShoppingBasket(customer1);
+        product1 = new Product("Twix", 0.50, false, 1);
         product2 = new Product("Multipack Beer", 10.00, false, 2);
         product3 = new Product("Bacon", 2.80, true, 3);
     }
@@ -61,5 +61,45 @@ public class ShoppingBasketTest {
         assertEquals(0, shoppingBasket1.itemCount(product2));
         assertEquals(0, shoppingBasket1.itemCount(product3));
     }
+
+    @Test
+    public void canCalculateSimpleTotal(){
+        shoppingBasket1.addProduct(product1);
+        assertEquals(0.50, shoppingBasket1.basketTotalValue(), 0.01);
+        shoppingBasket1.addProduct(product2);
+        assertEquals(10.50, shoppingBasket1.basketTotalValue(), 0.01);
+        shoppingBasket1.addProduct(product3);
+        assertEquals(13.30, shoppingBasket1.basketTotalValue(), 0.01);
+    }
+
+    @Test
+    public void canCalculateMultipleTotal(){
+        shoppingBasket1.addProduct(product1);
+        shoppingBasket1.addProduct(product1);
+        shoppingBasket1.addProduct(product1);
+        assertEquals(1.50, shoppingBasket1.basketTotalValue(), 0.01);
+        shoppingBasket1.addProduct(product2);
+        assertEquals(11.50, shoppingBasket1.basketTotalValue(), 0.01);
+        shoppingBasket1.addProduct(product3);
+        assertEquals(14.30, shoppingBasket1.basketTotalValue(), 0.01);
+    }
+
+
+    @Test
+    public void canCalculateBogoffTotal(){
+        shoppingBasket1.addProduct(product1);
+        assertEquals(0.50, shoppingBasket1.basketTotalValue(), 0.01);
+        shoppingBasket1.addProduct(product2);
+        assertEquals(10.50, shoppingBasket1.basketTotalValue(), 0.01);
+        shoppingBasket1.addProduct(product3);
+        assertEquals(13.30, shoppingBasket1.basketTotalValue(), 0.01);
+        shoppingBasket1.addProduct(product3);
+        assertEquals(13.30, shoppingBasket1.basketTotalValue(), 0.01);
+        shoppingBasket1.addProduct(product3);
+        assertEquals(16.10, shoppingBasket1.basketTotalValue(), 0.01);
+        shoppingBasket1.addProduct(product3);
+        assertEquals(16.10, shoppingBasket1.basketTotalValue(), 0.01);
+    }
+
 
 }
