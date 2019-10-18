@@ -135,7 +135,17 @@ public class ShoppingBasketTest {
         assertEquals(20.11, shoppingBasket2.basketTotalValue(), 0.01);
     }
 
-
+    @Test
+    public void canGetAllDiscountsExceptLoyaltyCard(){
+        shoppingBasket1.addProduct(product3);
+        shoppingBasket1.addProduct(product3);
+        // £2.80
+        assertEquals(2.80, shoppingBasket1.basketTotalValue(),0.01);
+        shoppingBasket1.addProduct(product2);
+        shoppingBasket1.addProduct(product2);
+        // ((£2.80 + £10 + £10 ) - 10%)
+        assertEquals(20.52, shoppingBasket1.basketTotalValue(), 0.01);
+    }
 
 
 
