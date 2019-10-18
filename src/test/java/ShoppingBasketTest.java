@@ -123,6 +123,20 @@ public class ShoppingBasketTest {
         assertEquals(9.80, shoppingBasket2.basketTotalValue(), 0.01);
     }
 
+    @Test
+    public void canGetFullMontyDiscount(){
+        shoppingBasket2.addProduct(product3);
+        shoppingBasket2.addProduct(product3);
+        // £2.80 - 2% loyalty discount
+        assertEquals(2.74, shoppingBasket2.basketTotalValue(),0.01);
+        shoppingBasket2.addProduct(product2);
+        shoppingBasket2.addProduct(product2);
+        // ((£2.80 + £10 + £10 ) - 10%) - 2%
+        assertEquals(20.11, shoppingBasket2.basketTotalValue(), 0.01);
+    }
+
+
+
 
 
 }
