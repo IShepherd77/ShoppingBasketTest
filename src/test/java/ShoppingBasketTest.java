@@ -6,16 +6,20 @@ import static org.junit.Assert.assertEquals;
 public class ShoppingBasketTest {
 
     ShoppingBasket shoppingBasket1;
+    ShoppingBasket shoppingBasket2;
     Product product1;
     Product product2;
     Product product3;
     Customer customer1;
+    Customer customer2;
 
 
     @Before
     public void before(){
         customer1 = new Customer(1, "Dave", false);
+        customer2 = new Customer(2, "Big Al", true);
         shoppingBasket1 = new ShoppingBasket(customer1);
+        shoppingBasket2 = new ShoppingBasket(customer2);
         product1 = new Product("Twix", 0.50, false, 1);
         product2 = new Product("Multipack Beer", 10.00, false, 2);
         product3 = new Product("Bacon", 2.80, true, 3);
@@ -109,9 +113,16 @@ public class ShoppingBasketTest {
         assertEquals(20.00, shoppingBasket1.basketTotalValue(), 0.01);
         shoppingBasket1.addProduct(product2);
         assertEquals(27.00, shoppingBasket1.basketTotalValue(), 0.01);
-
-
 }
+
+    @Test
+    public void canGetLoyaltyDiscount(){
+        shoppingBasket1.addProduct(product2);
+        assertEquals(10.00, shoppingBasket1.basketTotalValue(), 0.01);
+        shoppingBasket2.addProduct(product2);
+        assertEquals(9.80, shoppingBasket2.basketTotalValue(), 0.01);
+    }
+
 
 
 }
