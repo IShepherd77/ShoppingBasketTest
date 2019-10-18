@@ -11,6 +11,7 @@ public class ShoppingBasket {
 
         this.items = new HashMap<Product, Integer>();
         this.customer = customer;
+        this.customer.setShoppingBasket(this);
     }
 
     public void addProduct(Product item){

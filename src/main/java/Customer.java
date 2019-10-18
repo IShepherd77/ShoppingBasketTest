@@ -5,11 +5,11 @@ public class Customer {
     private boolean loyaltyCard;
     private ShoppingBasket shoppingBasket;
 
-    public Customer (int id, String name, boolean loyaltyCard, ShoppingBasket shoppingBasket){
+    public Customer (int id, String name, boolean loyaltyCard){
         this.id = id;
         this.name = name;
         this.loyaltyCard = loyaltyCard;
-        this.shoppingBasket = shoppingBasket;
+        this.shoppingBasket = null;
     }
 
     public int getId() {

@@ -9,11 +9,13 @@ public class ShoppingBasketTest {
     Product product1;
     Product product2;
     Product product3;
+    Customer customer;
 
 
     @Before
     public void before(){
-        shoppingBasket1 = new ShoppingBasket();
+        customer = new Customer(1, "Dave", true);
+        shoppingBasket1 = new ShoppingBasket(customer);
         product1 = new Product("Twix", 0.50, true, 1);
         product2 = new Product("Multipack Beer", 10.00, false, 2);
         product3 = new Product("Bacon", 2.80, true, 3);
