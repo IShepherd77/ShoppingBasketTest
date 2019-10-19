@@ -19,33 +19,24 @@ public class Product {
         return this.id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getName(){
         return this.name;
 }
 
-    public void setName(String name){
-        this.name = name;
-}
+
 
     public double getPrice(){
         return this.price;
     }
 
-    public void setPrice(double Price){
-        this.price = price;
-    }
+
 
     public boolean isBogoff(){
         return this.bogoff;
     }
 
-    public void setBogoff(){
-        this.bogoff = bogoff;
-    }
+
 
     @Override
     public boolean equals(Object o) {

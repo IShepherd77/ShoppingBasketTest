@@ -38,7 +38,7 @@ public class ShoppingBasketTest {
     }
 
     @Test
-    public void canRemoveToShoppingBasket(){
+    public void canRemoveFromShoppingBasket(){
         shoppingBasket1.addProduct(product1);
         shoppingBasket1.addProduct(product1);
         shoppingBasket1.addProduct(product2);
